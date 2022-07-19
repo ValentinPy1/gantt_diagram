@@ -1,0 +1,35 @@
+#taskList {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    background: rgb(212, 212, 212);
+}
+
+.menu {
+    position: relative;
+    top: -30px;
+    left: 20px;
+}
+
+.counter {
+    position: relative;
+    width: 5%;
+    display: inline-block;
+    top: 20px;
+    left: 5px;
+}
+
+.task.name {
+    position: relative;
+    left: -15px;
+    font-weight: bold;
+    background: rgb(184, 184, 184);
+    padding: 5px 30px 5px 30px;
+}
+
+.delete {
+    position: relative;
+    background: rgb(219, 154, 154);
+    padding: 5px 10px 5px 10px;
+    margin: 0px;
+}
