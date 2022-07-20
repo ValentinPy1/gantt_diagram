@@ -37,8 +37,8 @@ export default function TaskList({ tasks, setTasks }) {
             <div className='menu'>
                 <input type='text' value={name} onChange={handleChange} />
                 <button onClick={addTask} id='addButton'>Add</button>
-                <Counter count={start} setCount={setStart} min={0} max={10} id='startCounter' />
-                <Counter count={duration} setCount={setDuration} min={1} max={10} id='durationCounter' />
+                <Counter count={start} setCount={setStart} min={0} max={31 - duration} id='startCounter' />
+                <Counter count={duration} setCount={setDuration} min={1} max={31 - start} id='durationCounter' />
             </div>
             <ul>
                 {tasks.map(task => (
