@@ -1,6 +1,9 @@
 .chart {
     position: absolute;
-    left: 60%;
+    left: 30%;
+    height: 100%;
+    overflow: scroll;
+    width: 100%
 }
 
 .bar {
@@ -9,13 +12,16 @@
     margin: 3px;
     padding-top: 4px;
     padding-bottom: 4px;
+    border-radius: 10%;
+    overflow: scroll;
 }
 
 .column {
     position: absolute;
+    display: inline;
     background: rgb(218, 218, 218);
     width: 2px;
-    height: 925px;
+    height: 100%;
     padding-top: 4px;
     padding-bottom: 4px;
 }

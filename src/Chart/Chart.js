@@ -10,7 +10,7 @@ export default function Chart({ tasks }) {
     <div className="chart">
       <div>
         {columns.map((column) => (
-          <div key={column} className="column" style={{left: column * 40 - 576}}>{column}</div>
+          <div key={column} className="column" style={{left: column * 40}}>{column}</div>
         ))}
       </div>
       <div>
