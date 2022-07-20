@@ -1,20 +1,14 @@
+import React, { useState } from "react";
 import "./App.css";
 import TaskList from "./TaskList/TaskList";
-import React, { useState } from "react";
+import Chart from "./Chart/Chart";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      name: "Example",
-      start: 0,
-      end: 2,
-      id: 0,
-      finished: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
   return (
     <div className="App">
       <TaskList tasks={tasks} setTasks={setTasks} />
+      <Chart tasks={tasks} />
     </div>
   );
 }
