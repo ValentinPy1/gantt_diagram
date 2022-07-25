@@ -1,29 +1,60 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Chart.css";
 
-export default function Chart({ tasks }) {
+const COLUMN_SPACING = 40;
+const COLUMN_COUNT = 40;
+
+export default function Chart({ tasks, setTasks }) {
   const columns = [];
-  for (let i = 0; i < 31; i++) {
+  const dragItem = useRef();
+  const dragOverItem = useRef();
+
+  for (let i = 0; i < COLUMN_COUNT; i++) {
     columns.push(i);
   }
+
+  const dragStart = (e, position) => {
+    dragItem.current = position;
+  }
+
+  const dragOver = (e, position) => {
+    dragOverItem.current = position;
+    console.log(dragOverItem.current);
+  }
+
+  const drop = (e) => {
+    setTasks(tasks => {
+      let newTasks = [...tasks];
+      tasks[dragItem.current].start = dragOverItem.current;
+      return newTasks
+    });
+  }
+
+
   return (
     <div className="chart">
       <div>
-        {columns.map((column) => (
-          <div key={column} className="column" style={{left: column * 40}}>{column}</div>
+        {columns.map((column, index) => (
+          <div key={column} className="column" style={{ left: column * COLUMN_SPACING }} onDragOver={(e) => dragOver(e, index)}>
+            {column}
+          </div>
         ))}
       </div>
+      <span id='horizontal' />
       <div>
-        {tasks.map((task) => (
+        {tasks.map((task, index) => (
           <div
             key={task.id}
             className="bar"
             style={{
-              left: task.start * 40 - 537,
-              width: task.duration * 40,
+              left: task.start * COLUMN_SPACING,
+              width: task.duration * COLUMN_SPACING,
               background: task.background,
               color: task.color,
             }}
+            draggable
+            onDragStart={(e) => dragStart(e, index)}
+            onDragEnd={(e) => drop(e)}
           >
             {task.name}
           </div>

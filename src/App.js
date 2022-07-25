@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <TaskList tasks={tasks} setTasks={setTasks} />
-      <Chart tasks={tasks} />
+      <Chart tasks={tasks} setTasks={setTasks}/>
     </div>
   );
 }

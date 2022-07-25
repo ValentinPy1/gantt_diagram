@@ -3,25 +3,39 @@
     left: 30%;
     height: 100%;
     overflow: scroll;
-    width: 100%
+    width: 70%
 }
 
 .bar {
-    top: 166px;
+    top: 172px;
     position: relative;
     margin: 3px;
     padding-top: 4px;
     padding-bottom: 4px;
-    border-radius: 10%;
+    border-radius: 5px;
     overflow: scroll;
+}
+
+.bar:hover {
+    box-shadow: 0 0 5px #000000;
 }
 
 .column {
     position: absolute;
-    display: inline;
+    display: inline-block;
     background: rgb(218, 218, 218);
     width: 2px;
     height: 100%;
     padding-top: 4px;
     padding-bottom: 4px;
+}
+
+#horizontal {
+    position: absolute;
+    display: inline-block;
+    background: rgb(218, 218, 218);
+    width: 120%;
+    height: 2px;
+    top: 40px;
+    left: 0px;
 }
