@@ -13,12 +13,12 @@ export default function Chart({ tasks, setTasks }) {
     columns.push(i);
   }
 
-  const dragStart = (e, position) => {
-    dragItem.current = position;
+  const dragStart = (e, index) => {
+    dragItem.current = index;
   }
 
-  const dragOver = (e, position) => {
-    dragOverItem.current = position;
+  const dragOver = (e, index) => {
+    dragOverItem.current = index;
     console.log(dragOverItem.current);
   }
 
@@ -30,6 +30,21 @@ export default function Chart({ tasks, setTasks }) {
     });
   }
 
+  const handleLeftClick = (e, index) => {
+    setTasks(tasks => {
+      let newTasks = [...tasks];
+      newTasks[index].duration += 0.5;
+      return newTasks
+    });
+  }
+
+  const handleAuxClick = (e, index) => {
+    setTasks(tasks => {
+      let newTasks = [...tasks];
+      newTasks[index].duration -= 0.5;
+      return newTasks
+    });
+  }
 
   return (
     <div className="chart">
@@ -55,6 +70,8 @@ export default function Chart({ tasks, setTasks }) {
             draggable
             onDragStart={(e) => dragStart(e, index)}
             onDragEnd={(e) => drop(e)}
+            onClick={(e) => handleLeftClick(e, index)}
+            onAuxClick={(e) => handleAuxClick(e, index)}
           >
             {task.name}
           </div>
